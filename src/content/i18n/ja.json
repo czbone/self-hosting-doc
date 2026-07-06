@@ -1,0 +1,13 @@
+{
+	"heading.anchorLabel": "「{{title}}」セクション",
+	"pagefind.search_label": "このサイトを検索",
+	"pagefind.clear_search": "クリア",
+	"pagefind.load_more": "さらに読み込む",
+	"pagefind.filters_label": "フィルター",
+	"pagefind.zero_results": "「[SEARCH_TERM]」に一致する結果はありません",
+	"pagefind.one_result": "「[SEARCH_TERM]」の結果 [COUNT] 件",
+	"pagefind.many_results": "「[SEARCH_TERM]」の結果 [COUNT] 件",
+	"pagefind.searching": "「[SEARCH_TERM]」を検索中...",
+	"expressiveCode.copyButtonTooltip": "クリップボードにコピー",
+	"expressiveCode.copyButtonCopied": "コピーしました！"
+}

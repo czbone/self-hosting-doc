@@ -1,0 +1,10 @@
+@import '@fontsource-variable/noto-sans-jp/wght.css';
+@import '@fontsource-variable/m-plus-1-code/wght.css';
+
+:root,
+::backdrop {
+	--sl-font: 'Noto Sans JP Variable', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+		'Yu Gothic UI', 'Yu Gothic', 'Meiryo', sans-serif;
+	--sl-font-mono: 'M PLUS 1 Code Variable', 'JetBrains Mono Variable',
+		ui-monospace, 'Cascadia Mono', monospace;
+}

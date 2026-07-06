@@ -1,0 +1,12 @@
+.card .body {
+	line-height: 1.75;
+}
+
+.card .body code:not(pre code) {
+	font-size: var(--sl-text-base);
+	line-height: 1.75;
+	margin-block: 0;
+	padding-block: 0.1em;
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}

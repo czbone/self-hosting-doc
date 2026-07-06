@@ -1,0 +1,10 @@
+[data-has-hero] .hero > img,
+.hero img {
+	filter: none;
+	/*border-radius: 0;*/
+}
+
+.hero img:hover {
+	filter: none;
+	transform: none;
+}
