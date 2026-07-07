@@ -1,39 +1,39 @@
 ---
 title: セルフホスティングガイド
-description: Starlight でドキュメントサイトを構築するための入門ガイド。
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+description: VPS を使って、自由度の高い・低コストなインターネットサービスを安全に運用するためのガイド。
+template: splash
 hero:
-  tagline: Starlight プロジェクトのセットアップが完了しました！
+  tagline: VPS で、自分のサービスを自由に・安全に・手軽に運用する
   image:
     file: ../../assets/server_hosting.png
-  actions:
-    - text: サンプルガイド
-      link: /guides/example/
-      icon: right-arrow
-    - text: Starlight ドキュメントを読む
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## 次のステップ
+VPS サービスを使ってサーバーを自分で運用すると、クラウドのマネージドサービスより**自由度が高く、コストを抑えやすい**環境でインターネットサービスを提供できます。
+
+一方で、セキュリティや運用の知識が必要になるため、最初の一歩が難しく感じることもあります。このガイドでは、**できるだけ簡単に**、実践的な手順と考え方をまとめていきます。
+
+## このガイドで扱うこと
 
 <CardGrid stagger>
-	<Card title="コンテンツを更新する" icon="pencil">
-		`src/content/docs/index.mdx` を編集すると、このページの内容が変わります。
+	<Card title="最新の技術" icon="rocket">
+		Docker やリバースプロキシなど、現在よく使われる構成を紹介します。すぐに試せる手順を中心に、モダンなセルフホスティング環境の組み立て方を解説します。
 	</Card>
-	<Card title="ページレイアウトを変更する" icon="document">
-		`src/content/docs/index.mdx` の `template: splash` を削除すると、このページにサイドバーが表示されます。
+	<Card title="安全な運用" icon="shield">
+		公開サーバーに必要なセキュリティとバックアップの基本を整理します。ファイアウォール、TLS、更新など、最低限押さえるべき運用のポイントを説明します。
 	</Card>
-	<Card title="新しいコンテンツを追加する" icon="add-document">
-		`src/content/docs` に Markdown または MDX ファイルを追加して、新しいページを作成できます。
-	</Card>
-	<Card title="サイトを設定する" icon="setting">
-		`astro.config.mjs` で `sidebar` などの設定を編集できます。
-	</Card>
-	<Card title="ドキュメントを読む" icon="open-book">
-		詳しくは [Starlight ドキュメント](https://starlight.astro.build/) を参照してください。
+	<Card title="開発とデプロイ" icon="puzzle">
+		自作アプリケーションを本番環境へ反映するまでの流れを、再現しやすい手順で解説します。開発からデプロイまでを一貫して学べる内容を目指します。
 	</Card>
 </CardGrid>
+
+## こんな方におすすめ
+
+- **はじめてサーバーを触る方** — 用語の説明とコピペで進められる手順を重視しています
+- **アプリは作れるが運用が不安な方** — セキュリティ・可用性・デプロイの実践ポイントを整理しています
+- **経験のあるエンジニア** — 構成の選択肢やトレードオフを参照できるリファレンスとして活用できます
+
+## このサイトの使い方
+
+サイドバーからトピック別に読み進めたり、検索でキーワードから該当ページを探したりできます。内容は随時追加・更新していく予定です。
