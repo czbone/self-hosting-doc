@@ -7,6 +7,9 @@ import wikiLinkPlugin from './src/remark/remark-wiki-link-starlight.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+	// GitHub Pages の設定(site は GitHub Pages の URL, base は GitHub Pages のベースパス)
+	site: 'https://czbone.github.io',
+	base: '/self-hosting-doc',
 	integrations: [
 		starlight({
 			plugins: [starlightThemeGalaxy()],
