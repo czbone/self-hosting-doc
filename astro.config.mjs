@@ -14,12 +14,12 @@ export default defineConfig({
 		starlight({
 			plugins: [starlightThemeGalaxy()],
 			customCss: ['./src/styles/fonts.css', './src/styles/hero.css', './src/styles/cards.css'],
-			title: 'セルフホスティングガイド',
+			title: 'セルフホスティングの細道',
 			favicon: '/favicon.png',
 			logo: {
 				light: './src/assets/server_logo.png',
 				dark: './src/assets/server_logo_dark.png',
-				alt: 'セルフホスティングガイド',
+				alt: 'セルフホスティングの細道ロゴ',
 				replacesTitle: true,
 			},
 			locales: {
@@ -36,10 +36,6 @@ export default defineConfig({
 						// Each item here is one entry in the navigation menu.
 						{ label: 'サンプルガイド', slug: 'guides/example' },
 					],
-				},
-				{
-					label: 'Wiki リンク',
-					items: [{ autogenerate: { directory: 'wiki-links' } }],
 				},
 				{
 					label: 'リファレンス',
