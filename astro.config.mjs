@@ -18,6 +18,7 @@ export default defineConfig({
 				'./src/styles/hero.css',
 				'./src/styles/cards.css',
 				'./src/styles/content.css',
+				'./src/styles/header.css',
 			],
 
 			title: 'セルフホスティングの細道',
@@ -25,7 +26,7 @@ export default defineConfig({
 			logo: {
 				light: './src/assets/server_logo.png',
 				dark: './src/assets/server_logo_dark.png',
-				alt: 'セルフホスティングの細道ロゴ',
+				alt: 'セルフホスティングの細道のロゴ',
 				replacesTitle: true,
 			},
 			locales: {
@@ -34,7 +35,7 @@ export default defineConfig({
 					lang: 'ja',
 				},
 			},
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			//social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
 					label: 'ガイド',

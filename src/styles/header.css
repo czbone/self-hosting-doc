@@ -1,0 +1,4 @@
+/* SNS アイコンがないとき、ダークモード切替の左側のセパレータを消す */
+.social-icons:empty::after {
+	display: none;
+}
