@@ -14,7 +14,7 @@
     "@flowershow/remark-wiki-link": "3.4.0",
     "@fontsource-variable/m-plus-1-code": "^5.2.10",
     "@fontsource-variable/noto-sans-jp": "^5.2.10",
-    "astro": "^7.0.6",
+    "astro": "^7.0.7",
     "sharp": "^0.35.3",
     "starlight-theme-galaxy": "^0.8.0"
   }
