@@ -6,46 +6,75 @@ head:
   - tag: title
     content: セルフホスティングの細道
 hero:
-  tagline: VPS・Docker・PaaSで始めるセルフホスティング
+  tagline: VPS・Docker・Coolifyで始めるセルフホスティング
   image:
     file: ../../assets/server_hosting.png
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-**セルフホスティング**とは自前でサーバーを運用することです。  
-サーバーの運用費用を押さえて安定的に運用するために、ここでは**VPS環境**に絞って技術を紹介していきます。
+**セルフホスティング**とは、自前のサーバー上でアプリケーションやサービスを運用することです。  
+Notion や GitHub Pages のようなマネージドサービスに任せるのではなく、自分でインフラを持つことで、**自由度・コスト・データの扱い**を自分で決められます。
 
-## PaaS（Platform as a Service）
+このガイドでは、できるだけシンプルに次のことを学べるように構成しています。
 
-PaaSとはサーバーを運営する機能を行うソフトウェアのことです。  
-PaaSソフトウェアを使うことによって、インターネットを介してWebブラウザでサーバー操作ができるようになります。
+- 最新の一般的な技術スタック（VPS、Docker、PaaS 的な管理ツール）
+- 安全な運用の基本（SSL、バックアップ、更新）
+- 自前アプリケーションの開発と本番デプロイ
 
-ここでは[Coolify](https://coolify.io/)というツールを使用します。
-**Coolify**を使うことによって、以下の利点があります。
+対象は、サーバー運用が初めての方から、インフラを自分で触りたいエンジニアまでです。
 
-- 複数ドメインでの複数のアプリケーションの運用
-- SSL(Let's encrypt)の自動処理
+## VPS（Virtual Private Server）
 
-## Docker環境
+**VPS** は、クラウド上に借りる仮想サーバーです。  
+専用サーバーより安価で、必要なソフトウェアを自由にインストールできます。
 
-現在の技術では、サーバーで必要なソフトウェアをコンテナ化された環境で動作させるのが基本です。  
-Dockerを使用することによって、アプリケーション、ミドルウェア、データベース等をより安定的に稼働させることができます。  
-Docker環境は**PaaS**ソフトウェアによって管理されます。
+このガイドでは VPS を前提にします。理由は次のとおりです。
+
+- 月数百円〜数千円程度から始められる
+- root 権限があり、学習しながら構成を変えられる
+- Coolify や Docker など、セルフホスティングに必要なツールをそのまま使える
+
+## Docker
+
+現代のサーバー運用では、アプリケーションやミドルウェア、データベースを **Docker コンテナ** で動かすのが基本です。
+
+Docker を使うと、次のようなメリットがあります。
+
+- 環境差による「自分の PC では動くのに本番で動かない」を減らせる
+- アプリごとに依存関係を分離できる
+- 再現性が高く、移行やバックアップがしやすい
+
+このガイドで扱う PaaS ツールも、Docker を土台にアプリを管理します。
+
+## Coolify（セルフホスト型 PaaS）
+
+**PaaS（Platform as a Service）** は、本来「アプリを動かすための実行基盤を提供するサービス」を指します。Heroku や Render が代表例です。
+
+一方、**[Coolify](https://coolify.io/)** は、自分の VPS 上に PaaS に近い体験を構築できる **セルフホスト型の管理ツール** です。  
+ブラウザからアプリのデプロイやドメイン設定ができ、Docker コンテナのライフサイクルを GUI で扱えます。
+
+Coolify を使う主な利点は次のとおりです。
+
+- 複数ドメイン・複数アプリケーションの運用
+- SSL/TLS（Let's Encrypt）の自動取得・更新
+- Git 連携によるデプロイ
+
+このガイドでは Coolify を中心に、実際の運用フローを順を追って説明します。
 
 ## この道で学ぶこと
 
 <CardGrid stagger>
 	<Card title="Coolifyのインストール" icon="setting">
-		CoolifyをインストールしてPaaS環境を構築します。
+		VPS 上に Coolify をインストールし、PaaS 環境の土台を構築します。
 	</Card>
-	<Card title="ブログサイト(Coming soon)" icon="open-book">
-		まずはシンプルに**WordPress**のブログサイトを構築します。ここでPaaSの基本的な操作を理解します。
+	<Card title="ブログサイト（Coming soon）" icon="open-book">
+		まずは **WordPress** でブログを立ち上げ、Coolify の基本操作（デプロイ、ドメイン、SSL）を学びます。
 	</Card>
-	<Card title="バックアップ(Coming soon)" icon="cloud-download">
-		運用するアプリケーションのバックアップについて理解します。
+	<Card title="バックアップ（Coming soon）" icon="cloud-download">
+		アプリケーションとデータのバックアップ方針・復旧手順を理解します。
 	</Card>
-	<Card title="開発とデプロイ(Coming soon)" icon="rocket">
-		Node.jsの自作アプリケーションを本番環境へ反映するまでの流れを行います。
+	<Card title="開発とデプロイ（Coming soon）" icon="rocket">
+		Node.js の自作アプリケーションを開発し、本番環境へ反映する流れを体験します。
 	</Card>
 </CardGrid>
