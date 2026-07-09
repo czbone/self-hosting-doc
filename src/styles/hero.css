@@ -4,6 +4,14 @@
 	/*border-radius: 0;*/
 }
 
+/* ヒーロー領域の上下余白を縮小 */
+.hero {
+	min-height: min(55vh, 460px);
+	margin-block: 0;
+	padding-block: clamp(0.25rem, 1vw, 0.75rem);
+	gap: clamp(1rem, 3vw, 2rem);
+}
+
 .hero img:hover {
 	filter: none;
 	transform: none;
