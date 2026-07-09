@@ -13,7 +13,13 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			plugins: [starlightThemeGalaxy()],
-			customCss: ['./src/styles/fonts.css', './src/styles/hero.css', './src/styles/cards.css'],
+			customCss: [
+				'./src/styles/fonts.css',
+				'./src/styles/hero.css',
+				'./src/styles/cards.css',
+				'./src/styles/content.css',
+			],
+
 			title: 'セルフホスティングの細道',
 			favicon: '/favicon.png',
 			logo: {

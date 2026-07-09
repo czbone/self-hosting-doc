@@ -1,0 +1,4 @@
+/* ## (h2) 見出しと直後の本文の間を広げる */
+.sl-markdown-content .sl-heading-wrapper.level-h2 + * {
+	margin-top: 2.25rem;
+}

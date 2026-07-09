@@ -8,3 +8,53 @@
 	filter: none;
 	transform: none;
 }
+
+/* ヒーロー見出し: フォントサイズはテーマ既定、余白で折り返しを防ぐ */
+.hero .copy {
+	gap: clamp(0.5rem, 2vw, 0.875rem);
+}
+
+.hero .copy > .tagline,
+.hero .copy > [data-page-title] {
+	max-width: none;
+}
+
+.hero [data-page-title] {
+	margin-bottom: clamp(0.5rem, 2vw, 1rem);
+	word-wrap: normal;
+	overflow-wrap: normal;
+	hyphens: none;
+}
+
+@media (min-width: 520px) {
+	.hero [data-page-title] {
+		white-space: nowrap;
+	}
+}
+
+/* サブタイトルを折り返さない */
+.hero .tagline {
+	font-size: clamp(0.85rem, 3.6vw, 1.35rem);
+	max-width: none;
+	margin-inline: 0;
+	margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+	line-height: 1.4;
+	white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+	[data-has-hero] .main-pane,
+	[data-has-hero] .content-panel {
+		padding-inline: 0.25rem;
+	}
+
+	.hero {
+		padding-inline: 0.25rem;
+		gap: clamp(0.75rem, 2.5vw, 1.5rem);
+		margin-inline: 0;
+	}
+
+	.hero .tagline {
+		font-size: clamp(0.78rem, 3.8vw, 1.1rem);
+	}
+}

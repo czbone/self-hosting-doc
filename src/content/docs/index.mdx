@@ -6,24 +6,32 @@ head:
   - tag: title
     content: セルフホスティングの細道
 hero:
-  tagline: VPS・Docker・PaaSで始めるセルフホスティング
+  tagline: VPS・PaaS・Dockerで始めるセルフホスティング
   image:
     file: ../../assets/server_hosting.png
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-**セルフホスティング**とは自前でサーバーを運用することです。
-
+**セルフホスティング**とは自前でサーバーを運用することです。  
 サーバーの運用費用を押さえて安定的に運用するために、ここでは**VSP環境**に絞って技術を紹介していきます。
 
-## PaaSソフトウェア
+## PaaS(Platform as a Service)
 
+PaaSとはサーバーを運営する機能を行うソフトウェアのことです。  
+PaaSソフトウェアを使うことによって、インターネットを介してWebブラウザでサーバー操作ができるようになります。
+
+ここでは**Coolify**(https://coolify.io/ )というツールを使用します。
 **Coolify**を使うことによって、以下の利点があります。
 
 - 複数ドメインでの複数のアプリケーションの運用
 - SSL(Let's encrypt)の自動処理
 
+## Docker環境
+
+現在、サーバーで稼働するアプリケーションやミドルウェア、データベースは
+サーバーで稼働するアプリケーションやミドルウェア、データベースは、Docker環境によって安定した環境で動作します。
+**PaaS**ソフトウェアによって管理されます。
 
 ## このガイドで扱うこと
 
