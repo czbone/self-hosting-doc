@@ -3,7 +3,11 @@ import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import starlight from '@astrojs/starlight';
 import starlightThemeGalaxy from 'starlight-theme-galaxy';
+import { loadEnv } from 'vite';
 import wikiLinkPlugin from './src/remark/remark-wiki-link-starlight.mjs';
+
+const gaId = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '')
+	.PUBLIC_GA_MEASUREMENT_ID;
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +18,28 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			plugins: [starlightThemeGalaxy()],
+			...(gaId
+				? {
+						head: [
+							{
+								tag: 'script',
+								attrs: {
+									async: true,
+									src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`,
+								},
+							},
+							{
+								tag: 'script',
+								content: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');
+`,
+							},
+						],
+					}
+				: {}),
 			customCss: [
 				'./src/styles/fonts.css',
 				'./src/styles/hero.css',
