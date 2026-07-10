@@ -65,10 +65,58 @@ Markdown 内で Obsidian 形式のリンクが使えます。
 | `pnpm preview` | ビルド結果をローカルでプレビュー |
 | `pnpm astro ...` | Astro CLI（`astro add` など） |
 
+## Google Analytics（GA4）
+
+このサイトでは [Google Analytics 4](https://analytics.google.com/)（gtag.js）を利用しています。Starlight の `head` 設定（[`astro.config.mjs`](astro.config.mjs)）により、全ページの `<head>` にタグを注入します。
+
+測定 ID が未設定の場合、タグは出力されません（ローカル開発時に意図せず計測しないため）。
+
+### 本番（GitHub Pages）
+
+GitHub Actions のビルド時に環境変数 `PUBLIC_GA_MEASUREMENT_ID` を渡します。値は **Repository secrets** に登録してください。
+
+| 項目 | 値 |
+| :-- | :-- |
+| 登録場所 | GitHub リポジトリ → Settings → Secrets and variables → Actions → **Repository secrets** |
+| Name | `GA_MEASUREMENT_ID` |
+| Value | GA4 の測定 ID（`G-` で始まる文字列） |
+
+[`deploy.yml`](.github/workflows/deploy.yml) では次のように参照しています。
+
+```yaml
+env:
+  PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+```
+
+`main` ブランチへ push すると再デプロイされ、生成された HTML に GA4 タグが含まれます。
+
+> **注意:** Environment variables（`github-pages` 環境など）に登録しただけでは動作しません。タグの注入は `build` ジョブで行われ、ワークフローは **Repository secrets** の `secrets.GA_MEASUREMENT_ID` を参照するためです。Environment variables を使う場合は、`build` ジョブに `environment: github-pages` を追加し、`vars.GA_MEASUREMENT_ID` へ参照を変更する必要があります。
+
+### ローカル開発
+
+ローカルでタグの出力を確認する場合は、`.env.example` を `.env` にコピーし、測定 ID を設定します。
+
+```bash
+PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+その後、ビルドして確認します。
+
+```bash
+pnpm run build
+pnpm run preview
+```
+
+`dist/index.html` の `<head>` に `googletagmanager.com/gtag/js` が含まれていれば成功です。`.env` は git 管理外（`.gitignore` 済み）です。
+
+### 動作確認
+
+1. 本番サイトのページソースで `googletagmanager.com/gtag/js` を検索する
+2. ブラウザの開発者ツール → Network で GA4 への `collect` リクエストを確認する
+3. [GA4 のリアルタイムレポート](https://analytics.google.com/) でアクセスが記録されることを確認する
+
 ## 参考リンク
 
 - [Starlight ドキュメント](https://starlight.astro.build/)
 - [Astro ドキュメント](https://docs.astro.build)
 - [@flowershow/remark-wiki-link](https://github.com/flowershow/remark-wiki-link)
-
-テスト
