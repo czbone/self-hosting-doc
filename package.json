@@ -2,7 +2,7 @@
   "name": "self-hosting-doc",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@11.12.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
