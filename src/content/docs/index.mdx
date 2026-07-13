@@ -11,7 +11,7 @@ hero:
     file: ../../assets/server_hosting.png
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, Card, CardGrid } from '@astrojs/starlight/components';
 
 **セルフホスティング**とは、自前のサーバー上でアプリケーションやサービスを運用することです。  
 Heroku や Vercel のようなマネージドサービスに任せるのではなく、自分でインフラを持つことで、**自由度・コスト・データの扱い**を自分で決められます。
@@ -66,9 +66,11 @@ Coolify を使う主な利点は次のとおりです。
 ## この道で学ぶこと
 
 <CardGrid stagger>
-	<Card title="Coolifyのインストール" icon="setting">
-		VPS 上に Coolify をインストールし、PaaS 環境の土台を構築します。
-	</Card>
+	<LinkCard
+		title="Coolifyのインストール"
+		href="/guides/vps/"
+		description="VPS 上に Coolify をインストールし、PaaS 環境の土台を構築します。"
+	/>
 	<Card title="ブログサイト（Coming soon）" icon="open-book">
 		まずは **WordPress** でブログを立ち上げ、Coolify の基本操作（デプロイ、ドメイン、SSL）を学びます。
 	</Card>

@@ -65,10 +65,16 @@ gtag('config', '${gaId}');
 			//social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-					label: 'ガイド',
+					label: 'Coolifyのインストール',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'サンプルガイド', slug: 'guides/example' },
+						{
+							label: 'VPS',
+							items: [{ autogenerate: { directory: 'guides/vps' } }],
+						},
+						{
+							label: 'Coolify',
+							items: [{ autogenerate: { directory: 'guides/coolify' } }],
+						},
 					],
 				},
 				{
