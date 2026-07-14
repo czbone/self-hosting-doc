@@ -1,0 +1,25 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends Omit<HTMLAttributes<'a'>, 'title'> {
+	title: string;
+	description?: string;
+	icon?: string;
+}
+
+const { title, description, icon, ...attributes } = Astro.props;
+---
+
+<article class="card sl-flex sl-icon-link-card">
+	<a {...attributes} class="sl-icon-link-card__link" aria-label={title}></a>
+	<p class="title sl-flex">
+		{icon && <Icon name={icon} class="icon" size="1.333em" />}
+		<span set:html={title} />
+	</p>
+	{description && (
+		<div class="body">
+			<p set:html={description} />
+		</div>
+	)}
+</article>
