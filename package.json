@@ -2,7 +2,7 @@
   "name": "self-hosting-doc",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@11.12.0",
+  "packageManager": "pnpm@11.13.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -15,8 +15,9 @@
     "@flowershow/remark-wiki-link": "3.4.0",
     "@fontsource-variable/m-plus-1-code": "^5.2.10",
     "@fontsource-variable/noto-sans-jp": "^5.2.10",
-    "astro": "^7.0.7",
+    "astro": "^7.0.9",
     "sharp": "^0.35.3",
+    "starlight-image-zoom": "^0.15.0",
     "starlight-theme-galaxy": "^0.8.0"
   },
   "devDependencies": {

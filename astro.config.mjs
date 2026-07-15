@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import starlight from '@astrojs/starlight';
 import starlightThemeGalaxy from 'starlight-theme-galaxy';
+import starlightImageZoom from 'starlight-image-zoom';
 import { loadEnv } from 'vite';
 import wikiLinkPlugin from './src/remark/remark-wiki-link-starlight.mjs';
 
@@ -17,7 +18,7 @@ export default defineConfig({
 	//base: '/self-hosting-doc',
 	integrations: [
 		starlight({
-			plugins: [starlightThemeGalaxy()],
+			plugins: [starlightThemeGalaxy(), starlightImageZoom()],
 			...(gaId
 				? {
 						head: [
