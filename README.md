@@ -1,59 +1,114 @@
-# セルフホスティングガイド
+# self-hosting-doc
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-Astro + Starlight で構築した日本語ドキュメントサイトです。Obsidian 形式の wiki リンク（`[[...]]`）に対応しています。
+[Astro](https://docs.astro.build) と [Starlight](https://starlight.astro.build/) で構築した日本語ドキュメントサイトのソースリポジトリです。Obsidian 形式の wiki リンク（`[[...]]`）に対応しています。
 
-## 主な機能
+## 技術スタック
 
-- **Starlight** — ドキュメントサイト向け Astro インテグレーション
-- **starlight-theme-galaxy** — Galaxy テーマ
-- **Wiki リンク** — `@flowershow/remark-wiki-link` による `[[ページ名]]` 構文のサポート
-- **日本語 UI** — ロケールは `ja`（ルート）
+| 項目 | 採用技術 |
+| :-- | :-- |
+| フレームワーク | Astro 7 |
+| ドキュメント基盤 | `@astrojs/starlight` |
+| テーマ | `starlight-theme-galaxy` |
+| 画像ズーム | `starlight-image-zoom` |
+| Wiki リンク | `@flowershow/remark-wiki-link` |
+| パッケージマネージャー | pnpm |
+| ホスティング | GitHub Pages（カスタムドメイン: `magic3.org`） |
 
 ## プロジェクト構成
 
 ```
 .
-├── public/                  # 静的ファイル（favicon など）
+├── .github/workflows/
+│   └── deploy.yml           # GitHub Pages への CI/CD
+├── public/                  # 静的ファイル（favicon、CNAME など）
 ├── src/
-│   ├── assets/              # 画像アセット
+│   ├── assets/              # 画像アセット（Markdown から相対パスで参照）
+│   ├── components/          # カスタム Astro コンポーネント
 │   ├── content/
 │   │   ├── docs/            # ドキュメント本体（.md / .mdx）
-│   │   │   ├── guides/
-│   │   │   ├── reference/
-│   │   │   └── wiki-links/  # wiki リンクのサンプル
-│   │   └── i18n/            # UI 文言の翻訳
+│   │   └── i18n/            # Starlight UI 文言の翻訳
 │   ├── remark/
-│   │   └── remark-wiki-link-starlight.mjs  # Starlight 向け wiki リンク設定
+│   │   └── remark-wiki-link-starlight.mjs  # wiki リンクの Starlight 向けアダプター
 │   ├── styles/              # カスタム CSS
-│   └── content.config.ts
-├── astro.config.mjs
+│   └── content.config.ts    # Content Collections の定義
+├── astro.config.mjs         # Astro / Starlight の設定
 ├── package.json
 └── pnpm-workspace.yaml
 ```
 
-`src/content/docs/` 以下の `.md` / `.mdx` ファイルが、そのパスに対応する URL として公開されます。
+## コンテンツの仕組み
+
+### ファイルと URL の対応
+
+`src/content/docs/` 以下の `.md` / `.mdx` ファイルが、そのパスに対応する URL として公開されます。拡張子を除いたパスがそのまま URL になります。
+
+| ファイル | URL |
+| :-- | :-- |
+| `src/content/docs/guides/foo.md` | `/guides/foo/` |
+| `src/content/docs/index.mdx` | `/` |
+
+### Content Collections
+
+[`src/content.config.ts`](src/content.config.ts) で Starlight の `docs` と `i18n` コレクションを定義しています。ドキュメントの frontmatter は Starlight の `docsSchema` に従います。
+
+### サイドバー
+
+サイドバーの構成は [`astro.config.mjs`](astro.config.mjs) の `sidebar` で定義します。`autogenerate` を使うと、指定ディレクトリ内のファイルから自動的にナビゲーションを生成できます。
+
+### 画像
+
+`src/assets/` に置いた画像は、ドキュメントから相対パスで参照します。トップページの hero 画像のように、frontmatter からも指定できます。
+
+```yaml
+hero:
+  image:
+    file: ../../assets/example.png
+```
+
+### カスタムコンポーネント
+
+`.mdx` ファイルでは Astro コンポーネントを import して利用できます。例: [`src/components/IconLinkCard.astro`](src/components/IconLinkCard.astro)（アイコン付きリンクカード）。
+
+### スタイル
+
+[`astro.config.mjs`](astro.config.mjs) の `customCss` で、以下の CSS を Starlight に読み込ませています。
+
+- `src/styles/fonts.css` — フォント（Noto Sans JP、M PLUS 1 Code）
+- `src/styles/hero.css` — トップページの hero セクション
+- `src/styles/cards.css` — カードコンポーネント
+- `src/styles/content.css` — 本文スタイル
+- `src/styles/header.css` — ヘッダー
+
+### 国際化
+
+ロケールは `ja`（ルート）のみです。UI 文言のカスタマイズは `src/content/i18n/ja.json` で行います。
 
 ## Wiki リンク
 
 Markdown 内で Obsidian 形式のリンクが使えます。
 
 ```markdown
-[[guides/example]]
-[[reference/example|リファレンスへ]]
-[[wiki-links/target-a#インストール手順]]
+[[guides/foo]]
+[[reference/bar|表示テキスト]]
+[[guides/baz#見出し名]]
 ```
 
-詳細とサンプルは開発サーバー起動後、[/wiki-links/](http://localhost:4321/wiki-links/) を参照してください。
+### 処理の流れ
 
-### 設定の概要
+1. `@flowershow/remark-wiki-link` が `[[...]]` 構文をパースする
+2. [`src/remark/remark-wiki-link-starlight.mjs`](src/remark/remark-wiki-link-starlight.mjs) が `src/content/docs/` 内のファイル一覧を収集し、Starlight の URL 形式（末尾スラッシュ付き）へ変換する
+3. [`astro.config.mjs`](astro.config.mjs) の `markdown.processor` で remark プラグインとして登録する
 
-- プラグイン: `@flowershow/remark-wiki-link@3.4.0`
-- アダプター: `src/remark/remark-wiki-link-starlight.mjs`（ファイル一覧の収集と Starlight 向け URL 変換）
-- 登録: `astro.config.mjs` の `markdown.processor`（`@astrojs/markdown-remark` の `unified()`）
+## 開発
 
-## コマンド
+### 前提
+
+- Node.js 24 推奨（CI と同じバージョン）
+- pnpm 11
+
+### コマンド
 
 プロジェクトルートで実行します。
 
@@ -65,9 +120,33 @@ Markdown 内で Obsidian 形式のリンクが使えます。
 | `pnpm preview` | ビルド結果をローカルでプレビュー |
 | `pnpm astro ...` | Astro CLI（`astro add` など） |
 
+エージェントやバックグラウンド実行では、Astro のバックグラウンドモードも使えます。
+
+```bash
+astro dev --background   # 起動
+astro dev status         # 状態確認
+astro dev logs           # ログ表示
+astro dev stop           # 停止
+```
+
+## デプロイ
+
+`main` ブランチへの push で [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) が実行され、GitHub Pages にデプロイされます。
+
+### パイプラインの概要
+
+1. `pnpm install --frozen-lockfile` で依存関係をインストール
+2. Astro のビルドキャッシュ（`node_modules/.astro`）を復元・保存
+3. `pnpm build` で静的サイトを生成（`dist/`）
+4. `actions/deploy-pages` で GitHub Pages に公開
+
+### サイト URL
+
+[`astro.config.mjs`](astro.config.mjs) の `site` に本番 URL を設定しています。カスタムドメインは [`public/CNAME`](public/CNAME) で指定します。
+
 ## Google Analytics（GA4）
 
-このサイトでは [Google Analytics 4](https://analytics.google.com/)（gtag.js）を利用しています。Starlight の `head` 設定（[`astro.config.mjs`](astro.config.mjs)）により、全ページの `<head>` にタグを注入します。
+[Google Analytics 4](https://analytics.google.com/)（gtag.js）を利用しています。Starlight の `head` 設定（[`astro.config.mjs`](astro.config.mjs)）により、全ページの `<head>` にタグを注入します。
 
 測定 ID が未設定の場合、タグは出力されません（ローカル開発時に意図せず計測しないため）。
 
