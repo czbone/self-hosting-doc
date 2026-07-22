@@ -48,20 +48,20 @@ docker ps --filter "name=coolify"
 
 1. Welcome 画面で **Let's go!** をクリックします。
 
-![Coolify の Welcome 画面](../../../../assets/guide/install1.png)
+    ![Coolify の Welcome 画面](../../../../assets/guide/install1.png)
 
 2. サーバー種別の選択画面で **This Machine** をクリックします。  
    このガイドでは Coolify をインストールした VPS 1 台で運用するため、**This Machine**（Coolify が動作しているサーバー自身）を選びます。**Remote Server** は別のサーバーを SSH 経由で管理する場合に使います。
 
-![サーバー種別の選択画面（This Machine を選択）](../../../../assets/guide/install2.png)
+    ![サーバー種別の選択画面（This Machine を選択）](../../../../assets/guide/install2.png)
 
 3. プロジェクト作成画面で **Create "My First Project"** をクリックします。
 
-![プロジェクト作成画面](../../../../assets/guide/install3.png)
+    ![プロジェクト作成画面](../../../../assets/guide/install3.png)
 
 4. セットアップ完了画面で **Go to Dashboard** をクリックし、ダッシュボードへ進みます。
 
-![セットアップ完了画面](../../../../assets/guide/install4.png)
+    ![セットアップ完了画面](../../../../assets/guide/install4.png)
 
 ## 3. 管理画面 URL の設定
 
@@ -76,6 +76,8 @@ docker ps --filter "name=coolify"
 2. 管理画面の左サイドメニューで **Settings** をクリックし、**General** ページを表示します。**URL** 項目に `https://` 付きでドメイン名を入力します（例: `https://coolify.example.com`）。**General** のタイトル横の **Save** ボタンで設定を保存します。
 
    URL を `https://` 付きで保存すると、Coolify が **Let's Encrypt** で SSL 証明書を自動取得します。
+
+    ![ドメイン名設定](../../../../assets/guide/admin_url.png)
 
 3. ブラウザで設定した URL にアクセスし、管理画面が表示されることを確認してください。  
    以降は **8000 番ポートではなく、設定したドメイン URL** でアクセスします。
