@@ -11,7 +11,7 @@ Coolify をインストールする前に、VPS（Virtual Private Server）の�
 ## この章で行うこと
 
 1. **[[guides/vps/specs|必要スペックの確認]]** — Coolify が安定して動く最低条件を満たす
-2. **[[guides/vps/selection|VPS プロバイダの選定]]** — 契約先を決め、サーバーを用意する
+2. **[[guides/vps/selection|VPS プロバイダの選定]]** — 本格運用向けの基準で契約先を決め、サーバーを用意する
 3. **[[guides/vps/security|セキュリティの基本設定]]** — ファイアウォールで必要なポートのみ開放する
 
 ## Coolify インストールへの前提
@@ -25,7 +25,7 @@ VPS 上で SSH 接続ができ、root 権限（または `sudo`）でコマン�
 | ページ | 内容 |
 | :-- | :-- |
 | [必要スペック](/guides/vps/specs/) | CPU・メモリ・ストレージ・OS の要件 |
-| [VPS の選択](/guides/vps/selection/) | 品質の見方とプロバイダ実例 |
+| [VPS の選定（本格運用向け）](/guides/vps/selection/) | 本格運用の選定基準とプロバイダ実例 |
 | [セキュリティ](/guides/vps/security/) | ファイアウォールの基本 |
 
 ## 次のステップ

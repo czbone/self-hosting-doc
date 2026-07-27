@@ -24,4 +24,4 @@ Coolify 自体が Docker コンテナとして動作し、デプロイするア�
 
 ## 次のステップ
 
-スペックを確認したら、[[guides/vps/selection|VPS プロバイダの選定]] に進みましょう。
+最低条件を満たしたら、長期運用を見据えた [[guides/vps/selection|VPS プロバイダの選定]] に進みましょう。
