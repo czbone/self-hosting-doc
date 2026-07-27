@@ -10,6 +10,43 @@ import wikiLinkPlugin from './src/remark/remark-wiki-link-starlight.mjs';
 const gaId = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '')
 	.PUBLIC_GA_MEASUREMENT_ID;
 
+const ogImage = 'https://magic3.org/og.png';
+
+const head = [
+	{
+		tag: 'meta',
+		attrs: { property: 'og:image', content: ogImage },
+	},
+	{
+		tag: 'meta',
+		attrs: { name: 'twitter:image', content: ogImage },
+	},
+	{
+		tag: 'meta',
+		attrs: { name: 'twitter:card', content: 'summary_large_image' },
+	},
+	...(gaId
+		? [
+				{
+					tag: 'script',
+					attrs: {
+						async: true,
+						src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`,
+					},
+				},
+				{
+					tag: 'script',
+					content: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');
+`,
+				},
+			]
+		: []),
+];
+
 // https://astro.build/config
 export default defineConfig({
 	// GitHub Pages の設定(site は GitHub Pages の URL, base は GitHub Pages のベースパス)
@@ -19,28 +56,10 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			plugins: [starlightThemeGalaxy(), starlightImageZoom()],
-			...(gaId
-				? {
-						head: [
-							{
-								tag: 'script',
-								attrs: {
-									async: true,
-									src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`,
-								},
-							},
-							{
-								tag: 'script',
-								content: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${gaId}');
-`,
-							},
-						],
-					}
-				: {}),
+			components: {
+				Hero: './src/components/Hero.astro',
+			},
+			head,
 			customCss: [
 				'./src/styles/fonts.css',
 				'./src/styles/hero.css',
