@@ -1,0 +1,88 @@
+---
+title: The Narrow Road to Self-Hosting
+description: A guide to running flexible, low-cost internet services securely on a VPS.
+template: splash
+head:
+  - tag: title
+    content: The Narrow Road to Self-Hosting
+hero:
+  image:
+    file: ../../../assets/hero.png
+    alt: An ink-wash landscape. A traveler walks a narrow path; calligraphy reads “The Narrow Road to Self-Hosting”
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import IconLinkCard from '../../../components/IconLinkCard.astro';
+
+## Self-hosting with VPS, Docker, and Coolify
+
+**Self-hosting** means running applications and services on your own server.  
+Instead of relying on managed platforms like Heroku or Vercel, you own the infrastructure and decide **flexibility, cost, and how data is handled**.
+
+This guide keeps things simple and focuses on:
+
+- A modern, common stack (VPS, Docker, PaaS-style management tools)
+- Secure operations basics (SSL, backups, updates)
+- Building your own apps and deploying them to production
+
+It is for beginners to server operations and for engineers who want hands-on control of infrastructure.
+
+## VPS (Virtual Private Server)
+
+A **VPS** is a virtual server you rent in the cloud.  
+It is cheaper than a dedicated server and lets you install the software you need.
+
+This guide assumes a VPS for these reasons:
+
+- Fixed monthly cost, often from a few dollars to a few tens of dollars
+- Root access so you control the server layout
+- No limits on installing standard self-hosting tools such as Docker and Coolify
+
+## Docker
+
+In modern server operations, apps, middleware, and databases usually run in **Docker containers**.  
+A Docker container isolates an app in a lightweight environment.
+
+Docker helps you:
+
+- Reduce “works on my machine” gaps between local and production
+- Keep dependencies separate per app
+- Improve reproducibility for migration and backups
+
+The PaaS-style tools in this guide also manage apps on top of Docker.
+
+## Coolify (self-hosted PaaS)
+
+**PaaS (Platform as a Service)** normally means a hosted platform that runs your apps—Heroku and Render are typical examples.
+
+**[Coolify](https://coolify.io/)**, by contrast, is a **self-hosted management tool** that brings a PaaS-like experience to your own VPS.  
+You can deploy apps and configure domains from a browser, and manage Docker container lifecycles through a GUI.
+
+Main benefits of Coolify:
+
+- Multiple domains and applications
+- Automatic SSL/TLS certificates via Let’s Encrypt
+- Deployments linked to Git
+
+Coolify is our recommended standard setup.  
+This guide walks through real operations centered on Coolify.
+
+## What you will learn on this path
+
+<CardGrid stagger>
+	<IconLinkCard
+		title="Installing Coolify"
+		icon="setting"
+		href="/en/guides/vps/"
+		description="Install Coolify on a VPS and build the foundation of your PaaS environment."
+	/>
+	<Card title="Blog site (Coming soon)" icon="open-book">
+		Start a blog with **WordPress** and learn Coolify basics (deploy, domains, SSL).
+	</Card>
+	<Card title="Backups (Coming soon)" icon="cloud-download">
+		Understand backup policy and recovery for applications and data.
+	</Card>
+	<Card title="Development and deploy (Coming soon)" icon="rocket">
+		Build a Node.js app and experience the path from development to production.
+	</Card>
+</CardGrid>

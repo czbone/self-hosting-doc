@@ -68,7 +68,10 @@ export default defineConfig({
 				'./src/styles/header.css',
 			],
 
-			title: 'セルフホスティングの細道',
+			title: {
+				ja: 'セルフホスティングの細道',
+				en: 'The Narrow Road to Self-Hosting',
+			},
 			favicon: '/favicon.png',
 			logo: {
 				light: './src/assets/server_logo.png',
@@ -76,16 +79,22 @@ export default defineConfig({
 				alt: 'セルフホスティングの細道のロゴ',
 				replacesTitle: true,
 			},
+			defaultLocale: 'root',
 			locales: {
 				root: {
 					label: '日本語',
 					lang: 'ja',
+				},
+				en: {
+					label: 'English',
+					lang: 'en',
 				},
 			},
 			//social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
 					label: 'Coolifyのインストール',
+					translations: { en: 'Installing Coolify' },
 					items: [
 						{
 							label: 'VPS',
@@ -99,6 +108,7 @@ export default defineConfig({
 				},
 				{
 					label: 'リファレンス',
+					translations: { en: 'Reference' },
 					items: [{ autogenerate: { directory: 'reference' } }],
 				},
 			],
