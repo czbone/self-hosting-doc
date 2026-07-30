@@ -11,8 +11,18 @@ const gaId = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '')
 	.PUBLIC_GA_MEASUREMENT_ID;
 
 const ogImage = 'https://magic3.org/og.png';
+const ogDescription =
+	'VPS を使って、自由度の高い・低コストなインターネットサービスを安全に運用するためのガイド。';
 
 const head = [
+	{
+		tag: 'meta',
+		attrs: { property: 'og:description', content: ogDescription },
+	},
+	{
+		tag: 'meta',
+		attrs: { name: 'twitter:description', content: ogDescription },
+	},
 	{
 		tag: 'meta',
 		attrs: { property: 'og:image', content: ogImage },
