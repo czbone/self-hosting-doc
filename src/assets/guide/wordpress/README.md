@@ -4,6 +4,7 @@
 
 想定ファイル名:
 
+- `project_create.png` — WordPress 用プロジェクトの作成
 - `service_add.png` — サービス一覧で WordPress を選択
 - `domain.png` — ドメイン設定
 - `deploy.png` — デプロイ完了

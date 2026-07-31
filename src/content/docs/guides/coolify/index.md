@@ -14,7 +14,7 @@ Coolify は自分の VPS 上で PaaS に近い体験を提供するセルフホ�
 
 1. **[[guides/coolify/preparation|インストール準備]]** — ファイアウォールで必要なポートを開放する
 2. **[[guides/coolify/installation|インストール手順]]** — Coolify をインストールし、管理画面を設定する
-3. **[[guides/coolify/concepts|プロジェクトと環境]]** — アプリをまとめる単位（プロジェクト／環境）を理解する
+3. **[[guides/coolify/concepts|プロジェクトの考え方]]** — 公開サービスごとにプロジェクトを分ける考え方を理解する
 
 ## インストール後に得られるもの
 

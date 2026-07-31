@@ -56,7 +56,7 @@ docker ps --filter "name=coolify"
     ![サーバー種別の選択画面（This Machine を選択）](../../../../assets/guide/install2.png)
 
 3. プロジェクト作成画面で **Create "My First Project"** をクリックします。  
-   プロジェクトはアプリやデータベースをまとめる単位です。詳しくは [[guides/coolify/concepts|プロジェクトと環境]] を参照してください。
+   プロジェクトは公開サービスごとに分ける単位です。ウィザードで作られる My First Project のあとも、アプリ用には専用プロジェクトを新規作成します。詳しくは [[guides/coolify/concepts|プロジェクトの考え方]] を参照してください。
 
     ![プロジェクト作成画面](../../../../assets/guide/install3.png)
 

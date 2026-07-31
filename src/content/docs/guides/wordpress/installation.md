@@ -9,10 +9,11 @@ sidebar:
 
 このガイドでは、Coolify のワンクリックサービスで **WordPress**（MariaDB 付き）を起動し、ドメイン・HTTPS・初期設定まで進めます。データベースの手動セットアップは不要です。
 
+公開サービスごとにプロジェクトを分ける方針に沿い、**WordPress 専用のプロジェクト** を新規作成してからデプロイします（[[guides/coolify/concepts|プロジェクトの考え方]]）。
+
 ## 前提条件
 
 - [[guides/coolify/installation|Coolify のインストールと初期設定]] が完了している
-- 初期プロジェクト（**My First Project**）があること（[[guides/coolify/concepts|プロジェクトと環境]]）
 - Coolify 管理画面にドメイン URL（HTTPS）でログインできる
 - ブログ用のドメイン（またはサブドメイン）を用意し、DNS の **A レコード** を VPS の IP アドレスに向けられる
 
@@ -23,21 +24,30 @@ DNS の反映には数分かかることが多いですが、場合によって�
 
 ## 1. WordPress サービスの作成
 
-Coolify 管理画面で、WordPress 用のワンクリックサービスを追加します。
+Coolify 管理画面で、WordPress 用プロジェクトを作り、ワンクリックサービスを追加します。
 
-### 1-1. リソースの追加
+### 1-1. WordPress 用プロジェクトの作成
 
 1. Coolify 管理画面にログインします。
-2. **My First Project** を開き、その中の環境（通常は **production**）を表示します。
-3. **+ New**（または **+ Add Resource**）をクリックします。
-4. **Services**（ワンクリックサービス）を選びます。
-5. 一覧から **WordPress**（または **WordPress with MariaDB**）を検索して選択します。
+2. **Projects**（またはプロジェクト一覧）から、新しいプロジェクトを作成します。
+3. 名前はわかりやすく **WordPress** などとします（ウィザードの **My First Project** はそのまま使わず、専用プロジェクトを用意します）。
+4. 作成した **WordPress** プロジェクトを開きます（画面に production と出ていても、そのまま使えばよい）。
+
+（スクリーンショット予定）
+
+<!-- ![WordPress 用プロジェクトの作成画面](../../../../assets/guide/wordpress/project_create.png) -->
+
+### 1-2. リソースの追加
+
+1. **WordPress** プロジェクトを開いた状態で、**+ New**（または **+ Add Resource**）をクリックします。
+2. **Services**（ワンクリックサービス）を選びます。
+3. 一覧から **WordPress**（または **WordPress with MariaDB**）を検索して選択します。
 
 （スクリーンショット予定）
 
 <!-- ![Coolify のサービス一覧で WordPress を選択する画面](../../../../assets/guide/wordpress/service_add.png) -->
 
-### 1-2. ドメインの設定
+### 1-3. ドメインの設定
 
 サービス作成画面で、WordPress に割り当てるドメインを設定します。
 
@@ -55,7 +65,7 @@ Coolify 管理画面で、WordPress 用のワンクリックサービスを追�
 
 <!-- ![WordPress サービスにドメインを設定する画面](../../../../assets/guide/wordpress/domain.png) -->
 
-### 1-3. デプロイ
+### 1-4. デプロイ
 
 1. 画面右上の **Deploy** をクリックします。
 2. Coolify が WordPress と MariaDB のイメージ取得、ネットワーク作成、コンテナ起動、SSL 証明書の取得を行います。初回は 1〜2 分かかることがあります。
@@ -127,6 +137,7 @@ Coolify 管理画面で、WordPress 用のワンクリックサービスを追�
 
 ## 次のステップ
 
-WordPress の起動と、Coolify でのデプロイ・ドメイン・SSL の基本操作ができました。
+WordPress の起動と、Coolify でのデプロイ・ドメイン・SSL の基本操作ができました。  
+公開サービスごとにプロジェクトを分ける型も、ここで一度体験できています。
 
-今後のガイドでは、写真バックアップ（Immich）やファイル共有（Nextcloud）、バックアップ方針などを順に扱います（公開をお待ちください）。
+今後のガイドでは、写真バックアップ（Immich）やファイル共有（Nextcloud）なども、それぞれ専用プロジェクトとして扱います（公開をお待ちください）。
