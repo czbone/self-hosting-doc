@@ -117,6 +117,11 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'ブログサイト（WordPress）',
+					translations: { en: 'Blog site (WordPress)' },
+					items: [{ autogenerate: { directory: 'guides/wordpress' } }],
+				},
+				{
 					label: 'リファレンス',
 					translations: { en: 'Reference' },
 					items: [{ autogenerate: { directory: 'reference' } }],

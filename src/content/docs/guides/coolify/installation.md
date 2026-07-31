@@ -55,7 +55,8 @@ docker ps --filter "name=coolify"
 
     ![サーバー種別の選択画面（This Machine を選択）](../../../../assets/guide/install2.png)
 
-3. プロジェクト作成画面で **Create "My First Project"** をクリックします。
+3. プロジェクト作成画面で **Create "My First Project"** をクリックします。  
+   プロジェクトはアプリやデータベースをまとめる単位です。詳しくは [[guides/coolify/concepts|プロジェクトと環境]] を参照してください。
 
     ![プロジェクト作成画面](../../../../assets/guide/install3.png)
 
@@ -132,4 +133,4 @@ docker ps --filter "name=coolify"
 ## 完了
 
 Coolify のインストールと初期設定が完了しました。  
-[[guides/coolify/index|Coolify のインストール]] の章を振り返り、次のガイド（ブログサイトの構築など）の公開をお待ちください。公開後は、Coolify の基本操作（デプロイ、ドメイン、SSL）を学んでいきます。
+次は [[guides/wordpress/installation|WordPress のインストール]] で、Coolify の基本操作（デプロイ、ドメイン、SSL）を学びましょう。
