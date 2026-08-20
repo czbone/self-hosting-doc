@@ -2,7 +2,7 @@
 title: メールの設定（SMTP）
 description: Coolify 本体からパスワード再設定やチーム招待のメールを送るための SMTP 設定です。
 sidebar:
-  order: 6
+  order: 5
 ---
 
 [[guides/coolify/installation|Coolify のインストール]] が完了していることを確認してから、以下の手順に進みます。
@@ -101,4 +101,4 @@ SMTP delivery を Enabled にして正常に保存されると、Sender 右上�
 
 ## 次のステップ
 
-[[guides/wordpress/installation|WordPress のインストール]] で、Coolify の基本操作（デプロイ、ドメイン、SSL）を学びましょう。
+[[guides/coolify/concepts|プロジェクトの考え方]] で、公開サービスごとにプロジェクトを分ける方針を確認しましょう。

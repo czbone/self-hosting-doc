@@ -2,7 +2,7 @@
 title: バージョンアップ
 description: Coolify 本体を自動で最新版に保つ設定です。
 sidebar:
-  order: 5
+  order: 4
 ---
 
 Coolify は、管理画面の設定を有効にしておけば **本体を自動でバージョンアップ** できます。  

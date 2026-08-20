@@ -133,4 +133,4 @@ docker ps --filter "name=coolify"
 ## 完了
 
 Coolify のインストールと初期設定が完了しました。  
-次は [[guides/wordpress/installation|WordPress のインストール]] で、Coolify の基本操作（デプロイ、ドメイン、SSL）を学びましょう。
+次は [[guides/coolify/update|バージョンアップ]] で、Coolify 本体を最新に保つ設定を確認しましょう。
