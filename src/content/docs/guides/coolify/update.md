@@ -41,4 +41,4 @@ Automatic updates を **Disabled** にしても、Check frequency による確�
 
 ## 次のステップ
 
-[[guides/wordpress/installation|WordPress のインストール]] で、Coolify の基本操作（デプロイ、ドメイン、SSL）を学びましょう。
+[[guides/coolify/email|メールの設定（SMTP）]] で、Coolify 本体からのメール送信を設定しましょう。
