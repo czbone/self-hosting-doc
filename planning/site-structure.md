@@ -68,7 +68,7 @@ Coolify 上でアプリケーションを動かし、日常的に使うサービ
 - GitHub Actions
 - ログ
 - 監視（入口は Coolify の Notifications。詳細は後述）
-- セキュリティ
+- セキュリティ（Coolify の 2FA。詳細は後述）
 - アップデート
 
 ### 達人編 — 自分で作る
@@ -122,7 +122,7 @@ src/content/docs/
     ci/               # GitHub Actions 等
     logging/
     monitoring/       # 上級。入口は Coolify Notifications（未執筆）
-    security/         # 運用全体のセキュリティ（VPS 初期設定とは別）
+    security/         # 上級。運用全体のセキュリティ。Coolify 2FA（未執筆）。VPS 初期設定とは別
     updates/
     astro/
     react/
@@ -139,6 +139,7 @@ src/content/docs/
 - `guides/vps/security.md` など、トピック内の初期設定はそのトピック配下のまま
 - 運用全体のセキュリティは `guides/security/` に分ける
 - Coolify の SMTP（初級）と Notifications（上級・監視）は分ける。後者は `guides/coolify/` に置かない
+- Coolify の 2FA は上級・セキュリティ。初級の Coolify 章では一切触れない
 - URL（`/guides/vps/` など）は段階に依存せず安定させる
 
 ---
@@ -173,7 +174,7 @@ src/content/docs/
         セキュリティ / HTTPS / アップデート など
 
 ■ 上級 — 安全に運用する
-    バックアップ / Ansible / 監視（Coolify 通知 → Uptime Kuma） / …
+    バックアップ / Ansible / 監視（Coolify 通知 → Uptime Kuma） / セキュリティ（Coolify 2FA） / …
 
 ■ 達人編 — 自分で作る
     Astro / React / …
@@ -259,6 +260,44 @@ guides/monitoring/
   index.md                      # 監視の考え方（まず内蔵通知、次に外部監視）
   coolify-notifications.md      # Coolify の Notifications
   uptime-kuma.md                # 外部監視
+```
+
+### 上級 — Coolify の 2FA
+
+初級の Coolify 章では **一切触れない**（予告・リンクも含めない）。有効化と復旧を同じトピックにまとめ、中級にも分けない。
+
+| 項目 | 内容 |
+| --- | --- |
+| 段階 | 上級 — 安全に運用する |
+| トピック | セキュリティ（`guides/security/`） |
+| 位置づけ | 運用セキュリティの1本目。管理画面ログインへの二要素認証 |
+| 予定パス | `guides/security/coolify-2fa.md` |
+| 本文 | 未執筆 |
+
+扱う範囲（実装時）:
+
+- 有効化（Profile からの設定）
+- リカバリコードの保管
+- 端末・コード喪失時の復旧（公式の Tinker 手順、または公式リンク）
+- パスワードリセットでは 2FA は外れないこと
+
+置かない場所:
+
+- `guides/coolify/`（初級のインストール章と混ぜない。パスワード復旧のトラブルシューティングにも書かない）
+- 中級「セキュリティを強化する」（アプリ運用と混ぜず、上級に一本化する）
+- `guides/vps/security.md`（SSH / ファイアウォールの初期設定であり、管理画面の 2FA とは別）
+
+公開ガイド側のつなぎ（実装時）:
+
+- 初級（Coolify インストール・SMTP・パスワード復旧）からはリンクしない
+- パスワード復旧はパスワードのみ。2FA の話は上級の本ページに集約する
+
+セキュリティトピックのページ案（いずれも未執筆）:
+
+```
+guides/security/
+  index.md                      # 運用セキュリティの考え方
+  coolify-2fa.md                # Coolify の 2FA（有効化・リカバリコード・復旧）
 ```
 
 ---

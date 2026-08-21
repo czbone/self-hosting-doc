@@ -149,8 +149,6 @@ docker ps --filter "name=coolify"
    docker exec -ti coolify sh -c "php artisan root:change-email"
    ```
 
-2FA を有効にしたあと端末やリカバリコードを失った場合は、この節では扱いません。公式の [Disable 2FA Manually](https://coolify.io/docs/troubleshoot/docker/manually-disable-2fa) を参照してください。
-
 ## 完了
 
 Coolify のインストールと初期設定が完了しました。  
