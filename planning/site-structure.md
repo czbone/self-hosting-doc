@@ -67,7 +67,7 @@ Coolify 上でアプリケーションを動かし、日常的に使うサービ
 - Ansible
 - GitHub Actions
 - ログ
-- 監視
+- 監視（入口は Coolify の Notifications。詳細は後述）
 - セキュリティ
 - アップデート
 
@@ -121,7 +121,7 @@ src/content/docs/
     ansible/
     ci/               # GitHub Actions 等
     logging/
-    monitoring/
+    monitoring/       # 上級。入口は Coolify Notifications（未執筆）
     security/         # 運用全体のセキュリティ（VPS 初期設定とは別）
     updates/
     astro/
@@ -138,6 +138,7 @@ src/content/docs/
 
 - `guides/vps/security.md` など、トピック内の初期設定はそのトピック配下のまま
 - 運用全体のセキュリティは `guides/security/` に分ける
+- Coolify の SMTP（初級）と Notifications（上級・監視）は分ける。後者は `guides/coolify/` に置かない
 - URL（`/guides/vps/` など）は段階に依存せず安定させる
 
 ---
@@ -172,7 +173,7 @@ src/content/docs/
         セキュリティ / HTTPS / アップデート など
 
 ■ 上級 — 安全に運用する
-    バックアップ / Ansible / …
+    バックアップ / Ansible / 監視（Coolify 通知 → Uptime Kuma） / …
 
 ■ 達人編 — 自分で作る
     Astro / React / …
@@ -212,6 +213,53 @@ src/content/docs/
 | 達人編 | 未整備 |
 
 既存ガイドのパス移行は不要（トピック直下を維持するため）。
+
+---
+
+## 未執筆ガイド案
+
+構成の決定だけを残す。本文・サイドバー・ページ追加は別タスク（本ドキュメントのスコープ外）。
+
+### 上級 — Coolify の運用通知（Notifications）
+
+初級の Coolify 章には入れない。SMTP は送る口、Notifications は運用で気づく手段として、段階を分ける。
+
+| 項目 | 内容 |
+| --- | --- |
+| 段階 | 上級 — 安全に運用する |
+| トピック | 監視（`guides/monitoring/`） |
+| 位置づけ | 監視の1本目。追加アプリなしで、既存 SMTP を流用する |
+| 予定パス | `guides/monitoring/coolify-notifications.md` |
+| 本文 | 未執筆 |
+
+読む順:
+
+1. 初級: Coolify の SMTP（[`guides/coolify/email.md`](../src/content/docs/guides/coolify/email.md)）— 送る口だけ
+2. 中級: WordPress など — 失敗しうる対象ができる
+3. 上級: バックアップ — 失敗通知の対象が増える
+4. 上級: **Coolify Notifications** — デプロイ失敗・バックアップ失敗・ディスク逼迫に気づく
+5. 上級: Uptime Kuma など — 外から叩く監視（後続）
+
+置かない場所:
+
+- `guides/coolify/`（初級のインストール章と混ぜない）
+- `guides/backup/` だけ（デプロイ失敗・ディスクが収まらない）
+- `guides/mail/`（アプリ／メールサーバー向けであり、管理画面の運用通知とは別）
+- `guides/notifications/` の新設（1機能のためにトピックを増やさない）
+
+公開ガイド側のつなぎ（実装時）:
+
+- `email.md` の「通知の詳細は扱わない」から、本ページへリンクする
+- 中級（WordPress など）の「次のステップ」は、上級の監視へ一文送る程度にする
+
+監視トピックのページ案（いずれも未執筆）:
+
+```
+guides/monitoring/
+  index.md                      # 監視の考え方（まず内蔵通知、次に外部監視）
+  coolify-notifications.md      # Coolify の Notifications
+  uptime-kuma.md                # 外部監視
+```
 
 ---
 

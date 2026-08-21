@@ -130,6 +130,27 @@ ss -tlnp | grep 8000
 docker ps --filter "name=coolify"
 ```
 
+### パスワードを忘れた場合
+
+ログイン画面は開けるが、パスワードが分からない場合です。管理画面自体が表示されないときは、上の表と確認コマンドを先に見てください。
+
+対象は、インストール時に作った **Root User**（最初の管理者）です。詳しくは公式の [Commands](https://coolify.io/docs/knowledge-base/commands) を参照してください。
+
+1. **SMTP を設定済み** — ログイン画面の **Forgot password** からリセット用メールを送れます。手順は [[guides/coolify/email|メールの設定（SMTP）]] を参照してください。
+2. **SMTP がない、またはメールが届かない** — VPS に SSH 接続し、次のコマンドを実行します。対話で Root User のメールアドレスと、新しいパスワードを入力します。
+
+   ```bash
+   docker exec -ti coolify sh -c "php artisan root:reset-password"
+   ```
+
+3. **メールアドレスも忘れた** — 同じ公式ページの `php artisan root:change-email` で Root User のメールアドレスを変更できます。
+
+   ```bash
+   docker exec -ti coolify sh -c "php artisan root:change-email"
+   ```
+
+2FA を有効にしたあと端末やリカバリコードを失った場合は、この節では扱いません。公式の [Disable 2FA Manually](https://coolify.io/docs/troubleshoot/docker/manually-disable-2fa) を参照してください。
+
 ## 完了
 
 Coolify のインストールと初期設定が完了しました。  
