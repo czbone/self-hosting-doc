@@ -18,6 +18,8 @@ Coolify は自分の VPS 上で PaaS に近い体験を提供するセルフホ�
 4. **[[guides/coolify/email|メールの設定（SMTP）]]** — パスワード再設定やチーム招待のメールを送れるようにする
 5. **[[guides/coolify/concepts|プロジェクトの考え方]]** — 公開サービスごとにプロジェクトを分ける考え方を理解する
 
+自動アップデート後に管理画面が **502 Bad Gateway** になったときは、[[guides/coolify/bad-gateway|管理画面が Bad Gateway になった場合]] を参照してください。
+
 ## インストール後に得られるもの
 
 - **Coolify 管理画面** — ブラウザからサーバー上のアプリを管理

@@ -34,7 +34,7 @@ Automatic updates を **Disabled** にしても、Check frequency による確�
 ## 補足
 
 - 更新されるのは **Coolify 本体** です。稼働中のアプリやデータベースは、基本的にそのまま動き続けます
-- バージョンアップ中は、管理画面が短時間使えなくなることがあります
+- バージョンアップ中は、管理画面が短時間使えなくなることがあります。数分待っても **502 Bad Gateway** のまま戻らない場合は、[[guides/coolify/bad-gateway|管理画面が Bad Gateway になった場合]] を参照してください
 - GitHub でのリリース後、CDN への反映を経て各インスタンスに配信されます。反映まで数時間〜数日かかることがあります
 
 詳しくは公式ドキュメントの [Upgrading Coolify](https://coolify.io/docs/get-started/upgrade) と [Coolify Instance Updates](https://coolify.io/docs/knowledge-base/self-update) を参照してください。

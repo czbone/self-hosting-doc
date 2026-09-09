@@ -114,6 +114,7 @@ docker ps --filter "name=coolify"
 | DNS | ドメインを使う場合、正しく VPS の IP を指しているか |
 | サービス状態 | `docker ps --filter "name=coolify"` で Coolify 関連コンテナが起動しているか |
 | 起動待ち | インストール直後は起動に 1〜2 分かかることがある |
+| 502 Bad Gateway | 自動アップデート後などに管理画面が 502 になる場合は、[管理画面が Bad Gateway になった場合](/guides/coolify/bad-gateway/) を参照 |
 
 ### 確認コマンド
 
