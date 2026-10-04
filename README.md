@@ -106,7 +106,7 @@ Markdown 内で Obsidian 形式のリンクが使えます。
 ### 前提
 
 - Node.js 24 推奨（CI と同じバージョン）
-- pnpm 11
+- pnpm 12（`package.json` の `packageManager` と同じバージョン）
 
 ### コマンド
 

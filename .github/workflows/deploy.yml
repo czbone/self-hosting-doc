@@ -26,9 +26,12 @@ jobs:
         with:
           node-version: '24'
 
-      # pnpm/action-setup のブートストラップ self-update を避けるため Corepack を使用
+      # package.json の packageManager を使う。古い pnpm で起動すると
+      # packageManagerDependencies が lockfile とずれ、frozen-lockfile が失敗する。
       - name: Enable pnpm via Corepack
-        run: corepack enable && corepack prepare pnpm@11.12.0 --activate
+        run: |
+          corepack enable
+          corepack prepare "$(node -p "require('./package.json').packageManager")" --activate
 
       - name: Setup pnpm cache
         uses: actions/setup-node@v6
