@@ -16,7 +16,7 @@ Coolify は自分の VPS 上で PaaS に近い体験を提供するセルフホ�
 2. **[[guides/coolify/installation|インストール手順]]** — Coolify をインストールし、管理画面を設定する
 3. **[[guides/coolify/update|バージョンアップ]]** — Automatic updates を有効にして Coolify 本体を最新に保つ
 4. **[[guides/coolify/email|メールの設定（SMTP）]]** — パスワード再設定やチーム招待のメールを送れるようにする
-5. **[[guides/coolify/concepts|プロジェクトの考え方]]** — 公開サービスごとにプロジェクトを分ける考え方を理解する
+5. **[[guides/coolify/concepts|基本的な管理のしくみ]]** — Project・Environment・Resource の構造と、公開サービスごとの分け方を理解する
 
 自動アップデート後に管理画面が **502 Bad Gateway** になったときは、[[guides/coolify/bad-gateway|管理画面が Bad Gateway になった場合]] を参照してください。
 

@@ -101,4 +101,4 @@ SMTP delivery を Enabled にして正常に保存されると、Sender 右上�
 
 ## 次のステップ
 
-[[guides/coolify/concepts|プロジェクトの考え方]] で、公開サービスごとにプロジェクトを分ける方針を確認しましょう。
+[[guides/coolify/concepts|基本的な管理のしくみ]] で、Coolify の単位と、公開サービスごとにプロジェクトを分ける方針を確認しましょう。

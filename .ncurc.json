@@ -1,0 +1,3 @@
+{
+  "reject": ["@flowershow/remark-wiki-link"]
+}
