@@ -23,7 +23,6 @@ sidebar:
    - **Application** — 自分で用意した Web アプリケーション
    - **Databases** — PostgreSQL などのデータベース
    - **Services** — WordPress などのワンクリックサービス
-4. サーバーの選択が出たときは、Coolify をインストールしたマシン（**This Machine** に相当するサーバー）を選びます。宛先（Docker ネットワーク）の選択が出たときも、表示された既定の宛先のままで構いません。
 
 （スクリーンショット予定）
 
