@@ -2,7 +2,7 @@
 title: 管理画面が Bad Gateway になった場合
 description: 自動アップデート後に Coolify 管理画面が 502 Bad Gateway になったときの確認と復旧手順です。
 sidebar:
-  order: 7
+  order: 8
 ---
 
 [[guides/coolify/update|Automatic updates]] を有効にしていると、Coolify 本体の更新直後に管理画面が **502 Bad Gateway** になることがあります。管理画面が使えないため、VPS に SSH 接続して確認します。

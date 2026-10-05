@@ -122,6 +122,11 @@ export default defineConfig({
 					items: [{ autogenerate: { directory: 'guides/wordpress' } }],
 				},
 				{
+					label: 'データベース',
+					translations: { en: 'Database' },
+					items: [{ autogenerate: { directory: 'guides/database' } }],
+				},
+				{
 					label: 'リファレンス',
 					translations: { en: 'Reference' },
 					items: [{ autogenerate: { directory: 'reference' } }],

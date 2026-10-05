@@ -39,6 +39,8 @@ Coolify 管理画面で、WordPress 用プロジェクトを作り、ワンク�
 
 ### 1-2. リソースの追加
 
+追加、起動、ログ、削除など、リソースに共通する操作は [[guides/coolify/resources|リソースの追加と削除]] を参照してください。
+
 1. **WordPress** プロジェクトを開いた状態で、**+ New**（または **+ Add Resource**）をクリックします。
 2. **Services**（ワンクリックサービス）を選びます。
 3. 一覧から **WordPress**（または **WordPress with MariaDB**）を検索して選択します。

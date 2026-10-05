@@ -17,6 +17,7 @@ Coolify は自分の VPS 上で PaaS に近い体験を提供するセルフホ�
 3. **[[guides/coolify/update|バージョンアップ]]** — Automatic updates を有効にして Coolify 本体を最新に保つ
 4. **[[guides/coolify/email|メールの設定（SMTP）]]** — パスワード再設定やチーム招待のメールを送れるようにする
 5. **[[guides/coolify/concepts|基本的な管理のしくみ]]** — Project・Environment・Resource の構造と、公開サービスごとの分け方を理解する
+6. **[[guides/coolify/resources|リソースの追加と削除]]** — 追加、起動と停止、ログ、ターミナル、削除を行う
 
 自動アップデート後に管理画面が **502 Bad Gateway** になったときは、[[guides/coolify/bad-gateway|管理画面が Bad Gateway になった場合]] を参照してください。
 

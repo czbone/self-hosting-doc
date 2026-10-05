@@ -123,4 +123,4 @@ VPS 上には複数のアプリ（ブログ、写真バックアップ、ファ�
 
 ## 次のステップ
 
-[[guides/wordpress/installation|WordPress のインストール]] で、WordPress 用の Project を作り、Service として最初の公開アプリを追加しましょう。
+[[guides/coolify/resources|リソースの追加と削除]] で共通の操作を確認してから、[[guides/wordpress/installation|WordPress のインストール]] に進みましょう。
