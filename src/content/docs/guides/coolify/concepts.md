@@ -41,7 +41,7 @@ Project の中には **Environment** があります。本番（production）と
 
 Environment の中で実際に動かすものが **Resource** です。Application、Database、Service をまとめた呼び方です。
 
-例えば、ブログは次のように置けます。
+例えば、ブログは次のように構成できます。
 
 ```text
 ブログ Project
@@ -52,7 +52,7 @@ Environment の中で実際に動かすものが **Resource** です。Applicati
             └── MariaDB
 ```
 
-この図は、Coolifyの管理画面上で並ぶ単位の例です。後続の WordPress 手順で使うワンクリックサービスは MariaDB を内包しているため、Database を別に作る必要はありません。
+この図は、Coolify管理画面に表示される各項目（Project、Environment、Resourceなど）の関係を表しています。なお、後続の WordPress 手順で使うワンクリックサービスは MariaDB を内包しているため、Database を別に作る必要はありません。
 
 ### Application（アプリケーション）
 
