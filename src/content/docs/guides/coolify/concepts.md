@@ -77,7 +77,7 @@ Environment の中で実際に動かすものが **Resource** です。Applicati
 
 **Service** は、複数のコンテナから構成されるまとまったサービスです。Coolify には、WordPress などのオープンソースソフトウェアを簡単に構築できる、あらかじめ用意されたサービスもあります。
 
-このガイドの WordPress は、Application ではなく Service として追加します。
+このガイドの「ブログサイト（WordPress）」 では、Application ではなく Service として追加します。
 
 ## まとめ
 
